@@ -1,9 +1,8 @@
-/* --- Scene Setup --- */
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Georgia', serif; /* Changed to a more classic font */
+    font-family: 'Georgia', serif;
     overflow: hidden;
 }
 
@@ -13,51 +12,39 @@ body, html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* === UPDATED: Changed file extension to .png === */
     background-image: url('desk-bg.png'); 
     background-size: cover;
     background-position: center;
 }
 
-/* --- Flip Container: The 3D Space --- */
 .flip-container {
-    /*
-     IMPORTANT: Adjust the width and height below to match your brochure's dimensions.
-     A typical trifold brochure might be around 11 by 8.5, so you could try
-     width: 770px; and height: 595px; to start.
-    */
     width: 800px;
     height: 570px;
     perspective: 1500px;
 }
 
-/* --- Flipper: The Rotating Element --- */
 .flipper {
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.9s; /* Slightly slower flip for a more dramatic effect */
+    transition: transform 0.9s;
     transform-style: preserve-3d;
     cursor: pointer;
     
-    /* === NEW: Makes it look placed on the desk === */
     transform: rotateZ(-4deg); 
 }
 
-/* --- Front and Back Panels --- */
 .front, .back {
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border-radius: 8px; /* Slightly smaller radius */
+    border-radius: 8px;
     overflow: hidden;
     
-    /* === UPDATED: More realistic shadow for this background === */
     box-shadow: 0 15px 40px rgba(0,0,0,0.55);
     
-    /* === NEW: A subtle border to define the paper edge === */
     border: 1px solid rgba(0,0,0,0.3);
 }
 
@@ -70,21 +57,17 @@ body, html {
     transform: rotateY(180deg);
 }
 
-/* --- The Flip Action --- */
 .flip-container.flipped .flipper {
-    /* === UPDATED: We keep the Z-axis rotation during the flip === */
     transform: rotateY(180deg) rotateZ(-4deg);
 }
 
 
-/* --- Thematic Helper Text --- */
 .instruction {
     margin-top: 30px;
-    /* === UPDATED: Thematic styling to match the desk vibe === */
-    color: #f0e6d2; /* Parchment color */
+    color: #f0e6d2; 
     font-size: 1.1em;
     font-style: italic;
-    background-color: rgba(50, 40, 30, 0.7); /* Dark, warm transparent background */
+    background-color: rgba(50, 40, 30, 0.7); 
     padding: 10px 20px;
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.1);
